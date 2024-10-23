@@ -1,0 +1,148 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Scanner</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #logContainer {
+        margin-top: 20px;
+        padding: 10px;
+        max-height: 2000px;
+        overflow-y: auto;
+    }
+    marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    color: #0056b3;
+    font-size: 40px;
+}
+</style>
+<body>
+
+<div class="container">
+    <h1>Face Scanner</h1>
+    <form id="scanForm" action="http://127.0.0.1:5000/video_feed" method="POST">
+        <button type="submit">Scan Face</button>
+    </form>
+    <div id="logContainer"><img src="https://i.pinimg.com/originals/84/22/0a/84220a2fc13e5f62e5f4da4ee1d15112.gif" width="400px" height="300px"></div>
+    <h3>Face Verification Status: <span id="status">Not verified</span></h3>
+    <marquee>உங்களின் முகத்தாய் சரியாக ஸ்கேன் செய்யவும்...</marquee>
+</div>
+
+<script>
+     function updateStatus() {
+        fetch('http://127.0.0.1:5000/verify_face', { method: 'POST' })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('status').textContent = data.status;
+            if (data.status === "verified") {
+                window.location.href = "/parties.html"; // Redirect to parties.html
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    setInterval(updateStatus, 1000); 
+</script>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Scanner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #logContainer {
+            margin-top: 20px;
+            padding: 10px;
+            max-height: 2000px;
+            overflow-y: auto;
+        }
+
+        marquee {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            color: #0056b3;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Face Scanner</h1>
+    <form id="scanForm">
+        <button type="submit">Scan Face</button>
+    </form>
+    <div id="logContainer">
+        <img src="https://i.pinimg.com/originals/84/22/0a/84220a2fc13e5f62e5f4da4ee1d15112.gif" width="400px" height="300px">
+    </div>
+    <h3>Face Verification Status: <span id="status">Not verified</span></h3>
+    <marquee>சரியாக ஸ்கேன் செய்யவும்...</marquee>
+</div>
+
+<script>
+    document.getElementById("scanForm").addEventListener("submit", function(event){
+        event.preventDefault(); // Prevent form submission
+
+        // Redirect to parties.html
+        window.location.href = "qr_verification.html";
+    });  
+</script>
+
+</body>
+</html>

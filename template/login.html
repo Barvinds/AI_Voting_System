@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated Login Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="../static/css/login.css" />
+</head>
+<body>
+  <img src="https://static.wixstatic.com/media/cbbfa4_6837841839e8454ca66998053fd8bfa7~mv2.gif" alt="">  
+
+  <div class="login_form_container">
+    <div class="login_form">
+      <!-- <form name="form" method="POST"> -->
+        <h2>LOGIN</h2>
+        
+        <div class="input_group">
+          <i class="fa fa-user"></i>
+          <input
+            type="text"
+            placeholder="NAME"
+            class="input_text"
+            autocomplete="off"
+            id="name"
+            name="name" 
+            required
+          />
+        </div>
+        <div class="input_group">
+          <i class="fa fa-unlock-alt"></i>
+          <input
+            type="text"
+            placeholder="PHONE NUMBER"
+            class="input_text"
+            autocomplete="off"
+            id="pnum"
+            type="password"
+            name="phone_number" 
+            required
+          />
+        </div>
+
+        <div class="button_group" id="login_button">
+          <button type="submit" id="submitBtn">SUBMIT</button> 
+        </div>
+        
+        <div id="error_container"></div>
+      <!-- </form>       -->
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="../static/js/login.js"></script>
+</body>
+</html>

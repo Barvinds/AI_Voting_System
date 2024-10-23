@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parties</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            font-family: 'Roboto', sans-serif;
+            background-color: #adacac;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .header_fixed {
+            max-height: 100vh;
+            width: 100%;
+            overflow: auto;
+            border: 1px solid #0c8063;
+        }
+
+        .header_fixed thead th {
+            position: sticky;
+            top: 0;
+            background-color: rgb(2, 63, 60);
+            color: #e6e7e8;
+            font-size: 15px;
+        }
+
+        th, td {
+            border-bottom: 1px solid #0c8063;
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        td img {
+            height: 200px;
+            width: 200px;
+            border-radius: 100%;
+            border: 5px solid #0c8063;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #edeef1;
+        }
+
+        tr:hover td {
+            color: #44b478;
+            cursor: pointer;
+            background-color: #ffffff;
+        }
+
+        td button {
+            border: none;
+            padding: 7px 20px;
+            border-radius: 20px;
+            background-color: rgb(7, 97, 85);
+            color: #e6e7e8;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: brown;
+        }
+
+        #popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .popup-content h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header_fixed">
+        <table>
+            <thead>
+                <tr>
+                    <th>S No.</th>
+                    <th>SYMBOL</th>
+                    <th>PARTIES NAME</th>
+                    <th>SHORT FORM</th>
+                    <th>VOTE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/en/5/5e/Dravida_Munnetra_Kazhagam_logo.png" /></td>
+                    <td>திராவிட முன்னேற்றக் கழகம்</td>
+                    <td>DMK</td>
+                    <td><button id="dmk">VOTE</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><img src="https://i.pinimg.com/originals/4b/46/5a/4b465a44c165d363d32a6d5e349e9773.png" /></td>
+                    <td>அனைத்திந்திய அண்ணா திராவிட முன்னேற்றக் கழகம்</td>
+                    <td>AADMK</td>
+                    <td><button id="aadmk">VOTE</button></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Bharatiya_Janata_Party_logo.svg/800px-Bharatiya_Janata_Party_logo.svg.png" /></td>
+                    <td>பாரதிய ஜனதா கட்சி</td>
+                    <td>BJP</td>
+                    <td><button id="bjp">VOTE</button></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/INC_Logo.png" /></td>
+                    <td>இந்திய தேசிய காங்கிரசு</td>
+                    <td>INK</td>
+                    <td><button id="ink">VOTE</button></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Indian_Election_Symbol_Mike.png/180px-Indian_Election_Symbol_Mike.png" /></td>
+                    <td>நாம் தமிழர் கட்சி</td>
+                    <td>NTK</td>
+                    <td><button id="ntk">VOTE</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Popup Overlay -->
+    <div id="popup-overlay">
+        <div class="popup-content">
+            <h2>DEAR VOTER, YOUR VOTE GOT SUCCESSFULLY</h2>
+            <button id="ok-button">OK</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const voteButtons = document.querySelectorAll('table tbody button');
+            voteButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    document.getElementById('popup-overlay').style.display = 'flex';
+                });
+            });
+
+            document.getElementById('ok-button').addEventListener('click', function() {
+                window.location.href = 'login.html';
+            });
+        });
+    </script>
+</body>
+</html>

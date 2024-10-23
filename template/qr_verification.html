@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #logContainer {
+        margin-top: 20px;
+        padding: 10px;
+        max-height: 2000px;
+        overflow-y: auto;
+    }
+    marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    color: #0056b3;
+    font-size: 40px;
+}
+
+</style>
+<body>
+
+<div class="container">
+    <h1>QR CODE SCAN</h1>
+    <form id="scanForm" action="http://127.0.0.1:5000/scan" method="POST">
+        <button type="submit">Scan QR Code</button>
+    </form>
+    <div id="logContainer"><img src="https://cdn.dribbble.com/users/93467/screenshots/1197117/chrome-2013-08-15-15-23-49-33.gif" width="400px" height="300px">
+    </div>
+    <h3>Verification Status: <span id="status">Not verified</span></h3>
+    <marquee>உங்களின் ஆதார் QR CODE சரியாக ஸ்கேன் செய்யவும்...</marquee>
+</div>
+
+<script>
+    document.getElementById("scanForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Send AJAX request to scan QR code
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://127.0.0.1:5000/scan", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+
+                document.getElementById("status").textContent = response.status;
+                if (response.status === "Verified" || response.status === "Duplicated verified") {
+                window.location.href = "parties.html";
+}
+            }
+        };
+        xhr.send();
+    });
+</script>
+
+</body>
+</html>

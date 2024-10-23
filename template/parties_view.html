@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card Design || Future Web</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+        }
+        h1{
+            color: rgb(2, 119, 84);
+            text-align: center;
+        }
+        marquee{
+            font-size: 20px;
+            color: rgb(2, 119, 84);
+        }
+        .row {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .container {
+            margin-top: 60px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            position: relative;
+            background-color: #111217;
+            width: 350px;
+            height: 420px;
+            color: #E6E7E8;
+            border-radius: 10px;
+            border: 2px solid #fe1104;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .card img {
+            position: absolute;
+            width: 300px;
+            margin-left: 45%;
+            transform: translateX(-50%);
+            padding-top: 50px;
+        }
+
+        .card .card-data {
+            margin-top: 14rem;
+            padding-top: 180px;
+            padding-left: 50px;
+            overflow-y: hidden;
+        }
+
+        .card .card-description {
+            font-size: 14px;
+            opacity: 0;
+        }
+
+        .card .card-button {
+            padding: 10px 20px;
+            color: #E6E7E8;
+            margin-top: 15px;
+            text-decoration: none;
+            border-radius: 2px;
+            background-color: #fe1104;
+            font-weight: 1000;
+            opacity: 0;
+        }
+
+        .card:hover img {
+            transition: 0.5s linear;
+            transform: translate(-50%, -3.5rem) rotate(0deg);
+            filter: drop-shadow(5px 5px 10px rgba(182, 174, 173, 0.4));
+        }
+
+        .card:hover .card-data {
+            transition: 1s;
+            margin-top: 9rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: flex-start;
+        }
+
+        .card:hover .card-description,
+        .card:hover .card-button {
+            opacity: 1;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ABOUT PARTIES</h1>
+    <marquee>இங்கு கட்சிகளின் விவரம் கொடுக்கப்பட்டுள்ளது...</marquee>
+    <div class="row">
+        <div class="container">
+            <div class="card"> <img src="https://upload.wikimedia.org/wikipedia/en/5/5e/Dravida_Munnetra_Kazhagam_logo.png">
+                <div class="card-data">
+
+                    <p class="card-description">திராவிட முன்னேற்றக் கழகம்</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card"> <img src="https://i.pinimg.com/originals/4b/46/5a/4b465a44c165d363d32a6d5e349e9773.png">
+                <div class="card-data">
+                    <p class="card-description">அனைத்திந்திய அண்ணா திராவிட முன்னேற்றக் கழகம்</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Bharatiya_Janata_Party_logo.svg/800px-Bharatiya_Janata_Party_logo.svg.png">
+                <div class="card-data">
+                    <p class="card-description">பாரதிய ஜனதா கட்சி</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card"> <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/INC_Logo.png" width="100px" height="300px">
+                <div class="card-data">
+                    <p class="card-description">இந்திய தேசிய காங்கிரசு</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card"> <img src="https://www.naamtamilar.org/wp-content/uploads/2019/03/naam-tamilar-katchi-seeman-vivasayi-election-symbol-tamilnadu-puducherry-chennai-press-club-chepauk-png-file-download.png">
+                <div class="card-data">
+                    <p class="card-description">நாம் தமிழர் கட்சி</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
